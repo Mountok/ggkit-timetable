@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { IoSchoolOutline, IoCalendarOutline, IoTimeOutline, IoLocationOutline, IoPersonOutline, IoSearchOutline } from 'react-icons/io5'
 import './App.css'
 import scheduleData from './data/schedule.json'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [selectedGroup, setSelectedGroup] = useState('')
   const [selectedDay, setSelectedDay] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [isGroupSelectorOpen, setIsGroupSelectorOpen] = useState(false)
+  const navigate = useNavigate()
 
   // Получить текущий день недели
   const getCurrentDay = () => {
@@ -33,6 +35,10 @@ function App() {
     localStorage.setItem('selectedGroup', groupName)
     setIsGroupSelectorOpen(false)
     setSearchTerm('')
+  }
+
+  const openShare = () => {
+    navigate('/share')
   }
 
   // Фильтрация групп по поисковому запросу
@@ -100,16 +106,26 @@ function App() {
               ))}
             </div>
             {selectedGroup && (
-              <button 
-                className="close-selector-btn"
-                onClick={() => setIsGroupSelectorOpen(false)}
-              >
-                Закрыть
-              </button>
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+                <button 
+                  className="close-selector-btn"
+                  onClick={() => setIsGroupSelectorOpen(false)}
+                >
+                  Закрыть
+                </button>
+                <button 
+                  className="share-btn"
+                  onClick={openShare}
+                >
+                  Поделиться
+                </button>
+              </div>
             )}
           </div>
         </div>
       )}
+
+      
 
       {/* Основной контент */}
       {selectedGroup && !isGroupSelectorOpen && (

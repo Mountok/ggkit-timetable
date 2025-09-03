@@ -195,6 +195,24 @@ body {
   background: #cbd5e1;
 }
 
+.share-btn {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.75rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.share-btn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
 /* Основной контент */
 .main-content {
   max-width: 1200px;
@@ -414,6 +432,68 @@ body {
   50% {
     opacity: 0.5;
   }
+}
+
+/* Share overlay */
+.share-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.share-card {
+  background: #fff;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: slideUp 0.25s ease;
+}
+
+.share-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.share-header h2 {
+  text-align: center;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+.share-body {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-image {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+}
+
+.close-share-btn {
+  width: calc(100% - 2rem);
+  margin: 0 1rem 1rem;
+  padding: 0.75rem;
+  background: #e2e8f0;
+  color: #1f2937;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.close-share-btn:hover {
+  background: #cbd5e1;
 }
 
 /* Адаптивный дизайн */
