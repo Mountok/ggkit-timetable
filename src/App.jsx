@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { IoSchoolOutline, IoCalendarOutline, IoTimeOutline, IoLocationOutline, IoPersonOutline, IoSearchOutline } from 'react-icons/io5'
+import { IoSchoolOutline, IoCalendarOutline, IoTimeOutline, IoLocationOutline, IoPersonOutline, IoSearchOutline, IoQrCodeOutline } from 'react-icons/io5'
 import './App.css'
 import scheduleData from './data/schedule.json'
 import { useNavigate } from 'react-router-dom'
@@ -73,6 +73,14 @@ function App() {
                 >
                   Изменить
                 </button>
+                <button
+                  className="share-inline-btn"
+                  onClick={() => navigate('/share')}
+                  title="Поделиться QR"
+                >
+                  <IoQrCodeOutline style={{ fontSize: '1.1rem' }} />
+                  <span>Поделиться</span>
+                </button>
               </>
             )}
           </div>
@@ -106,20 +114,12 @@ function App() {
               ))}
             </div>
             {selectedGroup && (
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
-                <button 
-                  className="close-selector-btn"
-                  onClick={() => setIsGroupSelectorOpen(false)}
-                >
-                  Закрыть
-                </button>
-                <button 
-                  className="share-btn"
-                  onClick={openShare}
-                >
-                  Поделиться
-                </button>
-              </div>
+              <button 
+                className="close-selector-btn"
+                onClick={() => setIsGroupSelectorOpen(false)}
+              >
+                Закрыть
+              </button>
             )}
           </div>
         </div>
