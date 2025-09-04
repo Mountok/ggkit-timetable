@@ -1,4 +1,5 @@
-import qrCodeImage from '../qrcode.png'
+import React from 'react';
+import qrCodeImage from '../qrcode.png';
 
 function SharePage() {
   return (
@@ -18,6 +19,7 @@ function SharePage() {
         fontSize: '1.75rem',
         fontWeight: 700
       }}>Онлайн Расписание</h1>
+      
       <img src={qrCodeImage} alt="QR Code" style={{
         width: '300px',
         height: '300px',

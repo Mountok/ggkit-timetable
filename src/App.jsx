@@ -3,12 +3,14 @@ import { IoSchoolOutline, IoCalendarOutline, IoTimeOutline, IoLocationOutline, I
 import './App.css'
 import scheduleData from './data/schedule.json'
 import { useNavigate } from 'react-router-dom'
+import BellsModal from './components/BellsModal'
 
 function App() {
   const [selectedGroup, setSelectedGroup] = useState('')
   const [selectedDay, setSelectedDay] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [isGroupSelectorOpen, setIsGroupSelectorOpen] = useState(false)
+  const [isBellsModalOpen, setIsBellsModalOpen] = useState(false)
   const navigate = useNavigate()
 
   // Получить текущий день недели
@@ -148,6 +150,51 @@ function App() {
               })}
             </div>
           </nav>
+          
+          {/* Кнопка расписания звонков */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '2rem',
+            padding: '0 1rem'
+          }}>
+            <button
+              className="bells-main-btn"
+              onClick={() => setIsBellsModalOpen(true)}
+              title="Расписание звонков"
+              style={{
+                backgroundColor: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                color: 'white',
+                border: 'none',
+                padding: '1rem 2rem',
+                borderRadius: '1rem',
+                fontSize: '1.125rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                boxShadow: '0 8px 25px rgba(16, 185, 129, 0.3)',
+                transition: 'all 0.3s ease-in-out',
+                textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
+                letterSpacing: '0.025em'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(16, 185, 129, 0.4)';
+                e.target.style.background = 'linear-gradient(135deg, #059669 0%, #047857 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(16, 185, 129, 0.3)';
+                e.target.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+              }}
+            >
+              <span style={{ fontSize: '1.5rem' }}>📅</span>
+              Расписание звонков
+            </button>
+          </div>
 
           {/* Расписание */}
           <div className="schedule-container">
@@ -192,6 +239,12 @@ function App() {
           </div>
         </main>
       )}
+      
+      {/* Bells Modal */}
+      <BellsModal 
+        isOpen={isBellsModalOpen}
+        onClose={() => setIsBellsModalOpen(false)}
+      />
     </div>
   )
 }

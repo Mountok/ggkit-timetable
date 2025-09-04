@@ -1,0 +1,290 @@
+{
+  "monday": {
+    "day": "Понедельник",
+    "schedule": [
+      {
+        "pairNumber": "Кураторский час",
+        "lessonNumbers": "1",
+        "time": "09:00 – 09:45",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "2,3",
+        "time": "09:55 – 11:05",
+        "break": "15 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "4,5",
+        "time": "11:20 – 12:30",
+        "break": "30 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "6,7",
+        "time": "13:00 – 14:10",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "8,9",
+        "time": "14:20 – 15:10",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "10,11",
+        "time": "15:20 – 16:10",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "12,13",
+        "time": "16:20 – 17:10",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "17:20 – 18:10",
+        "break": "10 минут"
+      }
+    ]
+  },
+  "tuesday": {
+    "day": "Вторник",
+    "schedule": [
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "1,2",
+        "time": "09:00 – 10:10",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "3,4",
+        "time": "10:30 – 11:40",
+        "break": "30 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "5,6",
+        "time": "12:10 – 13:20",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "7,8",
+        "time": "13:40 – 14:40",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "9,10",
+        "time": "14:50 – 15:50",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "11,12",
+        "time": "16:00 – 17:00",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "17:10 – 18:00",
+        "break": "10 минут"
+      }
+    ]
+  },
+  "wednesday": {
+    "day": "Среда",
+    "schedule": [
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "1,2",
+        "time": "09:00 – 10:10",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "3,4",
+        "time": "10:30 – 11:40",
+        "break": "30 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "5,6",
+        "time": "12:10 – 13:20",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "7,8",
+        "time": "13:40 – 14:40",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "9,10",
+        "time": "14:50 – 15:50",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "11,12",
+        "time": "16:00 – 17:00",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "17:10 – 18:00",
+        "break": "10 минут"
+      }
+    ]
+  },
+  "thursday": {
+    "day": "Четверг",
+    "schedule": [
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "1,2",
+        "time": "09:00 – 10:10",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "3,4",
+        "time": "10:30 – 11:40",
+        "break": "30 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "5,6",
+        "time": "12:10 – 13:20",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "7,8",
+        "time": "13:40 – 14:40",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "9,10",
+        "time": "14:50 – 15:50",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "11,12",
+        "time": "16:00 – 17:00",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "17:10 – 18:00",
+        "break": "10 минут"
+      }
+    ]
+  },
+  "friday": {
+    "day": "Пятница",
+    "schedule": [
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "1,2",
+        "time": "09:00 – 10:00",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "3,4",
+        "time": "10:10 – 11:10",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "5,6",
+        "time": "11:30 – 12:30",
+        "break": "50 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "7,8",
+        "time": "13:20 – 14:20",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "9,10",
+        "time": "14:30 – 15:30",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "11,12",
+        "time": "15:40 – 16:40",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "16:50 – 17:50",
+        "break": "10 минут"
+      }
+    ]
+  },
+  "saturday": {
+    "day": "Суббота",
+    "schedule": [
+      {
+        "pairNumber": "1",
+        "lessonNumbers": "1,2",
+        "time": "09:00 – 10:10",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "2",
+        "lessonNumbers": "3,4",
+        "time": "10:30 – 11:40",
+        "break": "30 минут"
+      },
+      {
+        "pairNumber": "3",
+        "lessonNumbers": "5,6",
+        "time": "12:10 – 13:20",
+        "break": "20 минут"
+      },
+      {
+        "pairNumber": "4",
+        "lessonNumbers": "7,8",
+        "time": "13:40 – 14:40",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "5",
+        "lessonNumbers": "9,10",
+        "time": "14:50 – 15:50",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "6",
+        "lessonNumbers": "11,12",
+        "time": "16:00 – 17:00",
+        "break": "10 минут"
+      },
+      {
+        "pairNumber": "7",
+        "lessonNumbers": "13,14",
+        "time": "17:10 – 18:00",
+        "break": "10 минут"
+      }
+    ]
+  }
+}
