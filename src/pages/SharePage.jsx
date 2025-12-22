@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import qrCodeImage from '../qrcode.png';
+import qrCodeMaxImage from '../qrcode_max.png';
 
 function SharePage() {
   const [loading, setLoading] = useState(true);
@@ -12,12 +13,12 @@ function SharePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Генерируем снежинки (статично, 120 шт — достаточно для плавного эффекта)
+  // Генерация снежинок
   const snowflakes = Array.from({ length: 120 }, (_, i) => {
-    const size = 8 + Math.random() * 12; // px
-    const duration = 8 + Math.random() * 12; // секунд
+    const size = 8 + Math.random() * 12;
+    const duration = 8 + Math.random() * 12;
     const delay = Math.random() * 10;
-    const x = Math.random() * 100; // % от ширины
+    const x = Math.random() * 100;
 
     return (
       <div
@@ -53,7 +54,7 @@ function SharePage() {
         overflow: 'hidden',
       }}
     >
-      {/* Падающий снег — бесконечно, без накопления */}
+      {/* Снег */}
       <div
         style={{
           position: 'fixed',
@@ -101,27 +102,63 @@ function SharePage() {
               position: 'relative',
             }}
           >
-            Онлайн Расписание
+            Онлайн расписание
           </h1>
-          <img
-            src={qrCodeImage}
-            alt="QR Code"
+
+          <div
             style={{
-              width: '300px',
-              height: '300px',
-              objectFit: 'contain',
-              borderRadius: '0.75rem',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-              background: '#fff',
-              padding: '1rem',
+              display: 'flex',
+              gap: '2rem',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
               zIndex: 2,
               position: 'relative',
             }}
-          />
+          >
+            {/* Основной сайт */}
+            <div style={{ textAlign: 'center' }}>
+              <img
+                src={qrCodeImage}
+                alt="QR Онлайн расписание"
+                style={{
+                  width: '260px',
+                  height: '260px',
+                  objectFit: 'contain',
+                  borderRadius: '0.75rem',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                  background: '#fff',
+                  padding: '1rem',
+                }}
+              />
+              <p style={{fontSize: "1.5rem", marginTop: '0.75rem', color: '#e2e8f0' }}>
+                Онлайн расписание
+              </p>
+            </div>
+
+            {/* Бот в Max */}
+            <div style={{ textAlign: 'center' }}>
+              <img
+                src={qrCodeMaxImage}
+                alt="QR Бот в Max"
+                style={{
+                  width: '260px',
+                  height: '260px',
+                  objectFit: 'contain',
+                  borderRadius: '0.75rem',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                  background: '#fff',
+                  padding: '1rem',
+                }}
+              />
+              <p style={{ fontSize: "1.5rem", marginTop: '0.75rem', color: '#3b82f6', fontWeight: 600}}>
+                Бот в Max
+              </p>
+            </div>
+          </div>
         </>
       )}
 
-      {/* Стили для снега */}
+      {/* CSS для снега */}
       <style jsx>{`
         @keyframes snowfall {
           0% {
@@ -133,17 +170,21 @@ function SharePage() {
             opacity: var(--opacity, 0.8);
           }
           100% {
-            transform: translateY(100vh) translateX(calc(var(--drift, 0px)));
+            transform: translateY(100vh)
+              translateX(calc(var(--drift, 0px)));
             opacity: 0;
           }
         }
+
         .snowflake {
           position: absolute;
           top: -20px;
           color: white;
           user-select: none;
           animation: snowfall linear infinite;
-          --drift: ${Math.random() > 0.5 ? `${5 + Math.random() * 20}px` : `-${5 + Math.random() * 20}px`};
+          --drift: ${Math.random() > 0.5
+            ? `${5 + Math.random() * 20}px`
+            : `-${5 + Math.random() * 20}px`};
           --opacity: ${0.5 + Math.random() * 0.5};
         }
       `}</style>
