@@ -116,7 +116,7 @@ function SharePage() {
             }}
           >
             {/* Основной сайт */}
-            <div style={{ textAlign: 'center' }}>
+            {/* <div style={{ textAlign: 'center' }}>
               <img
                 src={qrCodeImage}
                 alt="QR Онлайн расписание"
@@ -133,7 +133,7 @@ function SharePage() {
               <p style={{fontSize: "1.5rem", marginTop: '0.75rem', color: '#e2e8f0' }}>
                 Онлайн расписание
               </p>
-            </div>
+            </div> */}
 
             {/* Бот в Max */}
             <div style={{ textAlign: 'center' }}>
