@@ -17,28 +17,15 @@ function SharePage() {
         alignItems: 'center',
         justifyContent: 'center',
         background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-        padding: '2rem',
+        padding: '1rem',
         textAlign: 'center',
         position: 'relative',
       }}
     >
-      <h1
-        style={{
-          marginBottom: '2.5rem',
-          color: '#24324a',
-          fontSize: 'clamp(1.9rem, 3vw, 2.8rem)',
-          fontWeight: 700,
-          zIndex: 2,
-          position: 'relative',
-        }}
-      >
-        Онлайн расписание в MAX
-      </h1>
-
       <div
         style={{
           display: 'flex',
-          gap: '2rem',
+          gap: '1rem',
           flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'stretch',
@@ -53,11 +40,11 @@ function SharePage() {
             textAlign: 'center',
             background: 'rgba(255, 255, 255, 0.85)',
             borderRadius: '1.5rem',
-            padding: '1.75rem',
+            padding: '1.1rem',
             boxShadow: '0 18px 45px rgba(36, 50, 74, 0.12)',
             backdropFilter: 'blur(10px)',
             flex: '1 1 320px',
-            maxWidth: '360px',
+            maxWidth: '330px',
           }}
         >
           <img
@@ -71,14 +58,14 @@ function SharePage() {
               borderRadius: '0.75rem',
               boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
               background: '#fff',
-              padding: '1rem',
+              padding: '0.75rem',
             }}
           />
           <p
             style={{
-              fontSize: '1.5rem',
-              marginTop: '0.75rem',
-              marginBottom: '0.4rem',
+              fontSize: '1.25rem',
+              marginTop: '0.55rem',
+              marginBottom: '0.25rem',
               color: '#24324a',
               fontWeight: 700,
             }}
@@ -89,7 +76,7 @@ function SharePage() {
             style={{
               margin: 0,
               color: '#5b6474',
-              fontSize: '1rem',
+              fontSize: '0.95rem',
               lineHeight: 1.5,
             }}
           >
@@ -100,11 +87,11 @@ function SharePage() {
         <div
           style={{
             flex: '1 1 420px',
-            maxWidth: '560px',
+            maxWidth: '520px',
             background: 'linear-gradient(135deg, #1f3a5f 0%, #2f5b96 100%)',
             color: '#fff',
             borderRadius: '1.75rem',
-            padding: '2rem',
+            padding: '1.3rem',
             boxShadow: '0 22px 55px rgba(31, 58, 95, 0.22)',
             textAlign: 'left',
           }}
@@ -119,7 +106,7 @@ function SharePage() {
               fontSize: '0.9rem',
               fontWeight: 700,
               letterSpacing: '0.03em',
-              marginBottom: '1rem',
+              marginBottom: '0.7rem',
             }}
           >
             Большое обновление
@@ -127,9 +114,9 @@ function SharePage() {
 
           <h2
             style={{
-              margin: '0 0 1rem',
-              fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
-              lineHeight: 1.15,
+              margin: '0 0 0.7rem',
+              fontSize: 'clamp(1.35rem, 2.1vw, 1.85rem)',
+              lineHeight: 1.2,
             }}
           >
             Теперь бота можно добавить в группу в MAX и получать расписание автоматически
@@ -137,9 +124,9 @@ function SharePage() {
 
           <p
             style={{
-              margin: '0 0 1.5rem',
-              fontSize: '1.05rem',
-              lineHeight: 1.7,
+              margin: '0 0 1rem',
+              fontSize: '0.98rem',
+              lineHeight: 1.6,
               color: 'rgba(255, 255, 255, 0.88)',
             }}
           >
@@ -150,7 +137,7 @@ function SharePage() {
           <div
             style={{
               display: 'grid',
-              gap: '0.9rem',
+              gap: '0.6rem',
             }}
           >
             {updatePoints.map((point) => (
@@ -160,7 +147,7 @@ function SharePage() {
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '0.85rem',
-                  padding: '0.95rem 1rem',
+                  padding: '0.7rem 0.8rem',
                   borderRadius: '1rem',
                   background: 'rgba(255, 255, 255, 0.08)',
                 }}
@@ -178,8 +165,8 @@ function SharePage() {
                 <p
                   style={{
                     margin: 0,
-                    fontSize: '1rem',
-                    lineHeight: 1.6,
+                    fontSize: '0.95rem',
+                    lineHeight: 1.55,
                     color: '#f8fbff',
                   }}
                 >

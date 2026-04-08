@@ -63,6 +63,17 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.current-role {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .current-group {
@@ -86,6 +97,22 @@ body {
   background: #4f46e5;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.secondary-header-btn {
+  background: #eef2ff;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-header-btn:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
 }
 
 .share-inline-btn {
@@ -143,6 +170,54 @@ body {
   font-size: 1.5rem;
 }
 
+.selector-description {
+  margin: -0.5rem 0 1.5rem;
+  text-align: center;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.role-options {
+  display: grid;
+  gap: 1rem;
+}
+
+.role-card {
+  border: 1px solid #dbeafe;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef2ff 100%);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.role-card:hover,
+.role-card.active {
+  transform: translateY(-2px);
+  border-color: #6366f1;
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.16);
+}
+
+.role-card-icon {
+  font-size: 1.8rem;
+  color: #6366f1;
+}
+
+.role-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.role-card-text {
+  color: #64748b;
+  line-height: 1.5;
+}
+
 .search-box {
   position: relative;
   margin-bottom: 1.5rem;
@@ -180,6 +255,15 @@ body {
   gap: 0.5rem;
 }
 
+.empty-selector-state {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
+  color: #64748b;
+}
+
 .group-item {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -213,6 +297,33 @@ body {
 
 .close-selector-btn:hover {
   background: #cbd5e1;
+}
+
+.selector-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.secondary-selector-btn,
+.close-selector-btn-inline {
+  margin-top: 0;
+  width: 100%;
+}
+
+.secondary-selector-btn {
+  padding: 0.75rem;
+  background: #eef2ff;
+  color: #4f46e5;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.secondary-selector-btn:hover {
+  background: #e0e7ff;
 }
 
 .share-btn {
@@ -327,6 +438,17 @@ body {
   font-size: 1.5rem;
   color: #1e293b;
   margin: 0;
+}
+
+.schedule-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.schedule-meta {
+  color: #64748b;
+  font-size: 0.95rem;
 }
 
 .lessons-grid {
@@ -567,6 +689,10 @@ body {
     margin: 1rem;
   }
 
+  .selector-actions {
+    flex-direction: column;
+  }
+
   .current-group {
     font-size: 0.875rem;
   }
@@ -590,6 +716,11 @@ body {
 
   .header-title h1 {
     font-size: 1.25rem;
+  }
+
+  .header-group {
+    width: 100%;
+    justify-content: center;
   }
 
   .day-tab {
