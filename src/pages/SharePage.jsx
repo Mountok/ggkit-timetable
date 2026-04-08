@@ -1,11 +1,11 @@
 import React from 'react';
+import siteQrCodeImage from '../qrcode.png';
 import qrCodeMax2Image from '../qrcode_max_2.png';
 
 function SharePage() {
   const updatePoints = [
-    'Студенты могут добавить бота прямо в группу в MAX.',
-    'Бот автоматически присылает актуальное расписание.',
-    'Не нужно каждый раз открывать сайт и искать нужную пару.',
+    'На сайте ggkit-timetable.vercel.app расписание теперь доступно и преподавателям, и студентам.',
+    'Можно быстро открыть свою страницу и посмотреть актуальные пары в любое время.',
   ];
 
   return (
@@ -44,7 +44,7 @@ function SharePage() {
             boxShadow: '0 18px 45px rgba(36, 50, 74, 0.12)',
             backdropFilter: 'blur(10px)',
             flex: '1 1 320px',
-            maxWidth: '330px',
+            maxWidth: '300px',
           }}
         >
           <img
@@ -52,7 +52,7 @@ function SharePage() {
             alt="QR Бот в Max"
             style={{
               width: '100%',
-              maxWidth: '260px',
+              maxWidth: '220px',
               height: 'auto',
               objectFit: 'contain',
               borderRadius: '0.75rem',
@@ -63,9 +63,9 @@ function SharePage() {
           />
           <p
             style={{
-              fontSize: '1.25rem',
-              marginTop: '0.55rem',
-              marginBottom: '0.25rem',
+              fontSize: '1.1rem',
+              marginTop: '0.45rem',
+              marginBottom: '0.2rem',
               color: '#24324a',
               fontWeight: 700,
             }}
@@ -76,8 +76,8 @@ function SharePage() {
             style={{
               margin: 0,
               color: '#5b6474',
-              fontSize: '0.95rem',
-              lineHeight: 1.5,
+              fontSize: '0.84rem',
+              lineHeight: 1.4,
             }}
           >
             Отсканируйте QR-код, чтобы быстро открыть бота и подключить расписание.
@@ -87,11 +87,11 @@ function SharePage() {
         <div
           style={{
             flex: '1 1 420px',
-            maxWidth: '520px',
+            maxWidth: '470px',
             background: 'linear-gradient(135deg, #1f3a5f 0%, #2f5b96 100%)',
             color: '#fff',
             borderRadius: '1.75rem',
-            padding: '1.3rem',
+            padding: '1rem',
             boxShadow: '0 22px 55px rgba(31, 58, 95, 0.22)',
             textAlign: 'left',
           }}
@@ -103,41 +103,29 @@ function SharePage() {
               padding: '0.45rem 0.85rem',
               borderRadius: '999px',
               background: 'rgba(255, 255, 255, 0.16)',
-              fontSize: '0.9rem',
+              fontSize: '0.8rem',
               fontWeight: 700,
               letterSpacing: '0.03em',
-              marginBottom: '0.7rem',
+              marginBottom: '0.55rem',
             }}
           >
-            Большое обновление
+            Новое обновление
           </div>
 
           <h2
             style={{
-              margin: '0 0 0.7rem',
-              fontSize: 'clamp(1.35rem, 2.1vw, 1.85rem)',
-              lineHeight: 1.2,
+              margin: '0 0 0.5rem',
+              fontSize: 'clamp(1.15rem, 1.8vw, 1.55rem)',
+              lineHeight: 1.15,
             }}
           >
-            Теперь бота можно добавить в группу в MAX и получать расписание автоматически
+            Теперь на сайте можно смотреть расписание и студентам, и преподавателям
           </h2>
-
-          <p
-            style={{
-              margin: '0 0 1rem',
-              fontSize: '0.98rem',
-              lineHeight: 1.6,
-              color: 'rgba(255, 255, 255, 0.88)',
-            }}
-          >
-            Мы обновили сервис: бот помогает следить за занятиями прямо внутри группового чата,
-            чтобы важные пары и изменения приходили без лишних действий.
-          </p>
 
           <div
             style={{
               display: 'grid',
-              gap: '0.6rem',
+              gap: '0.45rem',
             }}
           >
             {updatePoints.map((point) => (
@@ -146,27 +134,27 @@ function SharePage() {
                 style={{
                   display: 'flex',
                   alignItems: 'flex-start',
-                  gap: '0.85rem',
-                  padding: '0.7rem 0.8rem',
+                  gap: '0.65rem',
+                  padding: '0.55rem 0.65rem',
                   borderRadius: '1rem',
                   background: 'rgba(255, 255, 255, 0.08)',
                 }}
               >
                 <div
                   style={{
-                    width: '0.7rem',
-                    height: '0.7rem',
+                    width: '0.55rem',
+                    height: '0.55rem',
                     borderRadius: '50%',
                     background: '#8ee3ff',
-                    marginTop: '0.45rem',
+                    marginTop: '0.38rem',
                     flexShrink: 0,
                   }}
                 />
                 <p
                   style={{
                     margin: 0,
-                    fontSize: '0.95rem',
-                    lineHeight: 1.55,
+                    fontSize: '0.83rem',
+                    lineHeight: 1.4,
                     color: '#f8fbff',
                   }}
                 >
@@ -174,6 +162,57 @@ function SharePage() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: '0.65rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              padding: '0.55rem 0.65rem',
+              borderRadius: '1rem',
+              background: 'rgba(255, 255, 255, 0.12)',
+            }}
+          >
+            <img
+              src={siteQrCodeImage}
+              alt="QR-код на сайт ggkit-timetable.vercel.app"
+              style={{
+                width: '68px',
+                height: '68px',
+                objectFit: 'contain',
+                borderRadius: '0.7rem',
+                background: '#fff',
+                padding: '0.35rem',
+                flexShrink: 0,
+              }}
+            />
+
+            <div>
+              <p
+                style={{
+                  margin: '0 0 0.15rem',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  color: '#f8fbff',
+                }}
+              >
+                QR-код на сайт
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '0.78rem',
+                  lineHeight: 1.35,
+                  color: 'rgba(255, 255, 255, 0.88)',
+                }}
+              >
+                Откройте расписание на телефоне:
+                <br />
+                ggkit-timetable.vercel.app
+              </p>
+            </div>
           </div>
         </div>
       </div>
