@@ -7,12 +7,15 @@ import {
   IoPersonOutline,
   IoSearchOutline,
   IoQrCodeOutline,
+  IoNotificationsOutline,
 } from 'react-icons/io5'
 import './App.css'
 import scheduleData from './data/schedule.json'
 import teachersScheduleData from './data/schedule_teachers.json'
 import { useNavigate } from 'react-router-dom'
 import BellsModal from './components/BellsModal'
+import NotificationSettingsModal from './components/NotificationSettingsModal'
+import useLessonNotifications from './hooks/useLessonNotifications'
 
 const STORAGE_KEYS = {
   role: 'selectedRole',
@@ -96,6 +99,8 @@ function App() {
   const [selectorStep, setSelectorStep] = useState('role')
   const [isGroupSelectorOpen, setIsGroupSelectorOpen] = useState(false)
   const [isBellsModalOpen, setIsBellsModalOpen] = useState(false)
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false)
+  const [installPrompt, setInstallPrompt] = useState(null)
   const navigate = useNavigate()
 
   const dayNames = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
@@ -132,6 +137,23 @@ function App() {
     setSelectorStep('role')
   }, [])
 
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault()
+      setInstallPrompt(event)
+    }
+
+    const handleAppInstalled = () => setInstallPrompt(null)
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+    window.addEventListener('appinstalled', handleAppInstalled)
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+      window.removeEventListener('appinstalled', handleAppInstalled)
+    }
+  }, [])
+
   const isTeacherMode = selectedRole === 'teacher'
   const activeSelection = isTeacherMode ? selectedTeacher : selectedGroup
   const activeLabel = isTeacherMode ? 'Преподаватель' : 'Группа'
@@ -140,6 +162,8 @@ function App() {
   const selectedDaySchedule = activeEntityData?.days.find((day) => day.name === selectedDay)
   const mergedLessons = mergeLessonsForDisplay(selectedDaySchedule?.lessons || [], isTeacherMode)
   const shouldShowSelector = isGroupSelectorOpen || !activeSelection
+
+  useLessonNotifications(selectedRole === 'student' ? selectedGroup : '')
 
   const filteredGroups = scheduleData.groups.filter((group) =>
     group.name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -182,6 +206,15 @@ function App() {
     localStorage.removeItem(STORAGE_KEYS.group)
     setIsGroupSelectorOpen(false)
     setSearchTerm('')
+  }
+
+  const handleInstallApp = async () => {
+    if (!installPrompt) return false
+
+    await installPrompt.prompt()
+    const choice = await installPrompt.userChoice
+    if (choice.outcome === 'accepted') setInstallPrompt(null)
+    return choice.outcome === 'accepted'
   }
 
   const roleDescription =
@@ -342,14 +375,7 @@ function App() {
             </div>
           </nav>
 
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginBottom: '2rem',
-              padding: '0 1rem',
-            }}
-          >
+          <div className="schedule-actions">
             <button
               className="bells-main-btn"
               onClick={() => setIsBellsModalOpen(true)}
@@ -386,6 +412,16 @@ function App() {
               <span style={{ fontSize: '1.5rem' }}>📅</span>
               Расписание звонков
             </button>
+            {!isTeacherMode && (
+              <button
+                className="notifications-main-btn"
+                onClick={() => setIsNotificationModalOpen(true)}
+                title="Настроить уведомления о парах"
+              >
+                <IoNotificationsOutline />
+                Уведомления
+              </button>
+            )}
           </div>
 
           <div className="schedule-container">
@@ -454,6 +490,13 @@ function App() {
       )}
 
       <BellsModal isOpen={isBellsModalOpen} onClose={() => setIsBellsModalOpen(false)} />
+      <NotificationSettingsModal
+        isOpen={isNotificationModalOpen}
+        onClose={() => setIsNotificationModalOpen(false)}
+        installPrompt={installPrompt}
+        onInstall={handleInstallApp}
+        groupName={selectedGroup}
+      />
     </div>
   )
 }
