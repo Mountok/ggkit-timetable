@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import SharePage from './pages/SharePage.jsx'
 import FreeRoomsPage from './pages/FreeRoomsPage.jsx'
+import CampusMapPage from './pages/CampusMapPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/free-rooms',
     element: <FreeRoomsPage />,
+  },
+  {
+    path: '/campus-map',
+    element: <CampusMapPage />,
   },
 ])
 

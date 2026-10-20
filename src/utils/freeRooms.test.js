@@ -52,6 +52,9 @@ test('находит свободные кабинеты во время пар�
   assert.equal(result.status, 'lesson')
   assert.deepEqual(result.rooms, { А: ['А102'], Б: [], В: ['В301'] })
   assert.deepEqual(result.occupiedRooms, ['А101', 'Б201'])
+  assert.deepEqual(result.occupancies['А101'], [
+    { group: 'Тест-1', subject: 'Занятие', teacher: '', lessonNumber: 1 },
+  ])
   assert.equal(result.freeRoomsCount, 2)
 })
 

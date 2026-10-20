@@ -81,8 +81,9 @@ const getLessonNumbers = (bell) =>
 
 const findDayByDate = (entity, date) => entity.days?.find((day) => day.date === date)
 
-const getOccupiedRooms = (scheduleData, date, lessonNumbers) => {
-  const occupied = new Set()
+const getRoomOccupancies = (scheduleData, date, lessonNumbers) => {
+  const occupancies = {}
+  const seen = new Set()
   const activeNumbers = new Set(lessonNumbers)
 
   for (const group of scheduleData?.groups || []) {
@@ -94,11 +95,24 @@ const getOccupiedRooms = (scheduleData, date, lessonNumbers) => {
       if (!activeNumbers.has(lessonNumber)) continue
 
       const room = normalizeRoom(lesson.room)
-      if (room) occupied.add(room)
+      if (!room) continue
+
+      const occupancy = {
+        group: group.name,
+        subject: lesson.subject || 'Занятие',
+        teacher: lesson.teacher || '',
+        lessonNumber,
+      }
+      const key = `${room}|${occupancy.group}|${occupancy.subject}|${occupancy.teacher}`
+      if (seen.has(key)) continue
+
+      seen.add(key)
+      if (!occupancies[room]) occupancies[room] = []
+      occupancies[room].push(occupancy)
     }
   }
 
-  return occupied
+  return occupancies
 }
 
 const getNextBell = (bells, currentMinutes) =>
@@ -145,6 +159,7 @@ export const getFreeRoomsAt = ({
     weekdayKey,
     rooms: roomsByBuilding,
     occupiedRooms: [],
+    occupancies: {},
     totalRooms: allRooms.length,
     freeRoomsCount: allRooms.length,
     currentBell: null,
@@ -179,7 +194,8 @@ export const getFreeRoomsAt = ({
   )
 
   if (current) {
-    const occupiedRooms = getOccupiedRooms(scheduleData, date, getLessonNumbers(current.bell))
+    const occupancies = getRoomOccupancies(scheduleData, date, getLessonNumbers(current.bell))
+    const occupiedRooms = new Set(Object.keys(occupancies))
     const freeRooms = Object.fromEntries(
       BUILDINGS.map((building) => [
         building,
@@ -193,6 +209,7 @@ export const getFreeRoomsAt = ({
       statusLabel: STATUS_LABELS.lesson,
       rooms: freeRooms,
       occupiedRooms: [...occupiedRooms].sort((a, b) => a.localeCompare(b, 'ru', { numeric: true })),
+      occupancies,
       freeRoomsCount: getAllRooms(freeRooms).length,
       currentBell: current.bell,
       nextBell: getNextBell(bells, currentMinutes),

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   IoArrowBackOutline,
   IoBusinessOutline,
+  IoExpandOutline,
   IoListOutline,
   IoMapOutline,
   IoRefreshOutline,
@@ -65,10 +66,16 @@ function FreeRoomsPage() {
             <IoArrowBackOutline aria-hidden="true" />
             Расписание
           </button>
-          <button className="free-rooms-refresh" onClick={refresh} title="Обновить список">
-            <IoRefreshOutline aria-hidden="true" />
-            Обновить
-          </button>
+          <div className="free-rooms-topbar-actions">
+            <button className="free-rooms-kiosk-link" onClick={() => navigate('/campus-map')}>
+              <IoExpandOutline aria-hidden="true" />
+              Карта для планшета
+            </button>
+            <button className="free-rooms-refresh" onClick={refresh} title="Обновить список">
+              <IoRefreshOutline aria-hidden="true" />
+              Обновить
+            </button>
+          </div>
         </div>
       </header>
 
