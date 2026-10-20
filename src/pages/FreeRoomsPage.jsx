@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   IoArrowBackOutline,
   IoBusinessOutline,
+  IoListOutline,
+  IoMapOutline,
   IoRefreshOutline,
   IoTimeOutline,
 } from 'react-icons/io5'
@@ -10,6 +12,7 @@ import scheduleData from '../data/schedule.json'
 import bellsData from '../data/bells.json'
 import roomsData from '../data/rooms.json'
 import { getFreeRoomsAt } from '../utils/freeRooms.js'
+import CampusRoomMap from '../components/CampusRoomMap.jsx'
 import '../App.css'
 
 const BUILDINGS = ['А', 'Б', 'В']
@@ -28,6 +31,7 @@ const getPeriodLabel = (result) => {
 function FreeRoomsPage() {
   const navigate = useNavigate()
   const [now, setNow] = useState(() => new Date())
+  const [viewMode, setViewMode] = useState('list')
 
   const refresh = useCallback(() => setNow(new Date()), [])
 
@@ -96,7 +100,28 @@ function FreeRoomsPage() {
           )}
         </section>
 
-        {!hasData ? (
+        <div className="free-rooms-view-toggle" role="group" aria-label="Режим отображения">
+          <button
+            className={viewMode === 'list' ? 'active' : ''}
+            onClick={() => setViewMode('list')}
+            aria-pressed={viewMode === 'list'}
+          >
+            <IoListOutline aria-hidden="true" />
+            Список
+          </button>
+          <button
+            className={viewMode === 'map' ? 'active' : ''}
+            onClick={() => setViewMode('map')}
+            aria-pressed={viewMode === 'map'}
+          >
+            <IoMapOutline aria-hidden="true" />
+            Карта
+          </button>
+        </div>
+
+        {viewMode === 'map' ? (
+          <CampusRoomMap roomsData={roomsData} result={result} hasData={hasData} />
+        ) : !hasData ? (
           <section className="free-rooms-empty">
             <h2>Расписание на эту дату не найдено</h2>
             <p>

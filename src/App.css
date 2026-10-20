@@ -480,6 +480,494 @@ body {
   font-size: 0.9rem;
 }
 
+.free-rooms-view-toggle {
+  width: fit-content;
+  display: flex;
+  gap: 0.35rem;
+  margin: 0 auto 1.5rem;
+  padding: 0.35rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.free-rooms-view-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 8rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.free-rooms-view-toggle button:hover {
+  color: #4338ca;
+  background: #eef2ff;
+}
+
+.free-rooms-view-toggle button.active {
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  box-shadow: 0 5px 14px rgba(79, 70, 229, 0.25);
+}
+
+.campus-map-section,
+.campus-floor-section {
+  padding: 1.25rem;
+  border: 1px solid rgba(203, 213, 225, 0.82);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+}
+
+.campus-map-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.campus-map-eyebrow {
+  color: #4f46e5;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.campus-map-heading h2 {
+  margin-top: 0.15rem;
+  color: #1e293b;
+  font-size: 1.45rem;
+}
+
+.campus-map-heading p {
+  max-width: 27rem;
+  color: #64748b;
+  text-align: right;
+}
+
+.campus-site-map {
+  position: relative;
+  min-height: 31rem;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
+    repeating-linear-gradient(45deg, #ecfccb 0, #ecfccb 16px, #f0fdf4 16px, #f0fdf4 32px);
+}
+
+.campus-road {
+  position: absolute;
+  z-index: 0;
+  background: #cbd5e1;
+  box-shadow: inset 0 0 0 1px #b6c2d1;
+}
+
+.campus-road-horizontal {
+  left: 14%;
+  right: -2%;
+  bottom: 21%;
+  height: 2.4rem;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.campus-road-vertical {
+  left: 16%;
+  bottom: -2%;
+  width: 2.4rem;
+  height: 28%;
+}
+
+.campus-yard {
+  position: absolute;
+  top: 9%;
+  left: 39%;
+  width: 45%;
+  height: 20%;
+  display: grid;
+  place-items: center;
+  border: 2px dashed rgba(100, 116, 139, 0.35);
+  border-radius: 1rem;
+  color: rgba(71, 85, 105, 0.65);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.campus-building {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 2px solid rgba(67, 56, 202, 0.35);
+  border-radius: 1.15rem;
+  background: linear-gradient(145deg, #fff, #e0e7ff);
+  color: #312e81;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(49, 46, 129, 0.16);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.campus-building:hover,
+.campus-building:focus-visible {
+  z-index: 3;
+  border-color: #4f46e5;
+  outline: none;
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 20px 38px rgba(49, 46, 129, 0.24);
+}
+
+.campus-building-a {
+  top: 35%;
+  right: 6%;
+  width: 48%;
+  height: 31%;
+}
+
+.campus-building-b {
+  top: 6%;
+  left: 4%;
+  width: 32%;
+  height: 22%;
+}
+
+.campus-building-v {
+  bottom: 6%;
+  left: 5%;
+  width: 14%;
+  height: 42%;
+}
+
+.campus-building-letter {
+  font-size: clamp(1.65rem, 4vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.campus-building-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.campus-building-status {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #475569;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.campus-map-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: #475569;
+  font-size: 0.88rem;
+}
+
+.campus-map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.legend-dot.free {
+  background: #22c55e;
+}
+
+.legend-dot.occupied {
+  background: #ef4444;
+}
+
+.legend-dot.unknown {
+  background: #94a3b8;
+}
+
+.campus-floor-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.campus-map-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.7rem;
+  background: #fff;
+  color: #475569;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.campus-floor-title {
+  grid-column: 2;
+  text-align: center;
+}
+
+.campus-floor-title span {
+  color: #4f46e5;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.campus-floor-title h2 {
+  color: #1e293b;
+  font-size: 1.45rem;
+}
+
+.floor-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem;
+  overflow-x: auto;
+  border-radius: 0.9rem;
+  background: #f1f5f9;
+}
+
+.floor-tabs button {
+  flex: 1 0 auto;
+  padding: 0.65rem 0.85rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.floor-tabs button.active {
+  background: #fff;
+  color: #4338ca;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+.floor-plan-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: #475569;
+}
+
+.floor-plan-heading div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1e293b;
+}
+
+.floor-plan-heading svg {
+  color: #4f46e5;
+  font-size: 1.25rem;
+}
+
+.floor-plan-heading > span {
+  font-size: 0.86rem;
+}
+
+.floor-plan {
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+
+.floor-room-row {
+  min-width: 42rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.65rem;
+}
+
+.floor-room {
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.65rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floor-room span {
+  font-size: 1.05rem;
+  font-weight: 850;
+}
+
+.floor-room small {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.floor-room.free {
+  border-color: #86efac;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.floor-room.occupied {
+  border-color: #fca5a5;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.floor-room.unknown {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.floor-room:hover,
+.floor-room.selected {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.13);
+}
+
+.floor-room.selected {
+  outline: 3px solid rgba(79, 70, 229, 0.2);
+}
+
+.floor-corridor {
+  min-width: 42rem;
+  height: 4rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.75rem 0;
+  padding: 0 1rem;
+  border: 1px dashed #94a3b8;
+  border-radius: 0.75rem;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.floor-corridor i {
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #94a3b8 0 12px, transparent 12px 20px);
+}
+
+.floor-no-rooms {
+  padding: 2.5rem 1rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  background: #f8fafc;
+  color: #64748b;
+  text-align: center;
+}
+
+.selected-room-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.selected-room-card.free {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.selected-room-card.occupied {
+  border-color: #fca5a5;
+  background: #fef2f2;
+}
+
+.selected-room-icon {
+  width: 2.7rem;
+  height: 2.7rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 1.25rem;
+}
+
+.selected-room-card > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-room-card > div:nth-child(2) > span {
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.selected-room-card > div:nth-child(2) > strong {
+  font-size: 1.25rem;
+}
+
+.selected-room-card p {
+  color: #475569;
+  font-size: 0.85rem;
+}
+
+.selected-room-card > small {
+  margin-left: auto;
+  color: #64748b;
+}
+
+.floor-plan-note {
+  margin-top: 0.9rem;
+  color: #64748b;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 .role-card {
   border: 1px solid #dbeafe;
   background: linear-gradient(135deg, #f8fbff 0%, #eef2ff 100%);
@@ -1215,6 +1703,32 @@ body {
 
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
+  .campus-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-map-heading p {
+    text-align: left;
+  }
+
+  .campus-site-map {
+    min-height: 27rem;
+  }
+
+  .campus-building-a {
+    right: 4%;
+    width: 55%;
+  }
+
+  .campus-building-b {
+    width: 36%;
+  }
+
+  .campus-building-v {
+    width: 18%;
+  }
+
   .free-rooms-grid {
     grid-template-columns: 1fr;
   }
@@ -1287,6 +1801,95 @@ body {
 }
 
 @media (max-width: 480px) {
+  .free-rooms-view-toggle {
+    width: 100%;
+  }
+
+  .free-rooms-view-toggle button {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .campus-map-section,
+  .campus-floor-section {
+    padding: 0.75rem;
+    border-radius: 1.1rem;
+  }
+
+  .campus-site-map {
+    min-height: 30rem;
+  }
+
+  .campus-building {
+    padding: 0.55rem;
+  }
+
+  .campus-building-a {
+    top: 34%;
+    right: 3%;
+    width: 58%;
+    height: 30%;
+  }
+
+  .campus-building-b {
+    top: 5%;
+    left: 3%;
+    width: 40%;
+    height: 21%;
+  }
+
+  .campus-building-v {
+    left: 4%;
+    width: 22%;
+    height: 39%;
+  }
+
+  .campus-building-name {
+    font-size: 0.7rem;
+  }
+
+  .campus-building-status {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.62rem;
+    text-overflow: ellipsis;
+  }
+
+  .campus-yard {
+    left: 45%;
+    width: 48%;
+    font-size: 0.68rem;
+  }
+
+  .campus-floor-header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-floor-title {
+    text-align: left;
+  }
+
+  .floor-plan {
+    padding: 0.7rem;
+  }
+
+  .floor-room-row,
+  .floor-corridor {
+    min-width: 36rem;
+  }
+
+  .selected-room-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .selected-room-card > small {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .free-rooms-topbar-content {
     padding: 0.75rem;
   }
