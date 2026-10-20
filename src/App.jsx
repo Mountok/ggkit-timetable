@@ -8,6 +8,7 @@ import {
   IoSearchOutline,
   IoQrCodeOutline,
   IoNotificationsOutline,
+  IoBusinessOutline,
 } from 'react-icons/io5'
 import './App.css'
 import scheduleData from './data/schedule.json'
@@ -234,6 +235,14 @@ function App() {
             <h1>Расписание ГГКИТ</h1>
           </div>
           <div className="header-group">
+            <button
+              className="free-rooms-header-btn"
+              onClick={() => navigate('/free-rooms')}
+              title="Свободные кабинеты сейчас"
+            >
+              <IoBusinessOutline />
+              <span>Свободные кабинеты</span>
+            </button>
             {activeSelection && (
               <>
                 <span className="current-role">{isTeacherMode ? 'Преподаватель' : 'Студент'}</span>
@@ -289,6 +298,14 @@ function App() {
                     <span className="role-card-text">Выбор ФИО преподавателя и его расписание.</span>
                   </button>
                 </div>
+
+                <button
+                  className="free-rooms-selector-btn"
+                  onClick={() => navigate('/free-rooms')}
+                >
+                  <IoBusinessOutline />
+                  Посмотреть свободные кабинеты
+                </button>
 
                 {activeSelection && (
                   <button className="close-selector-btn" onClick={() => setIsGroupSelectorOpen(false)}>
